@@ -1,0 +1,59 @@
+<!-- app/views/shared/_main_content.html.erb -->
+<main class="pt-24 pb-12 bg-gray-100">
+  <div class="container mx-auto px-6">
+    <!-- Hero Section -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="py-6 md:order-1 hidden md:block">
+        <%= image_tag 'heroImage.svg', alt: "Astronaut in the air", class: 'w-full rounded-lg shadow-lg' %>
+      </div>
+      <div>
+        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-gray-900">
+          Marketing website done with Astro
+        </h1>
+        <p class="text-lg mt-4 text-gray-600 max-w-xl">
+          Astroship is a starter template for startups, marketing websites & landing pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly create any website with this starter.
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <%= link_to 'Download for Free', 'https://web3templates.com/templates/astroship-starter-website-template-for-astro', target: '_blank', class: 'btn-primary' %>
+          <%= link_to 'GitHub Repo', 'https://github.com/surjithctly/astroship', target: '_blank', class: 'btn-secondary' %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="mt-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">
+        Everything you need to start a website
+      </h2>
+      <p class="text-lg mt-4 text-gray-600">
+        Astro comes batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations.
+      </p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+        <% features.each do |item| %>
+          <div class="flex gap-4 items-start bg-white p-6 rounded-lg shadow-lg">
+            <div class="bg-black rounded-full p-3 w-12 h-12 flex items-center justify-center">
+              <%= render_icon(item[:icon], class: 'text-white') %>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-800"><%= item[:title] %></h3>
+              <p class="text-gray-500 mt-2 leading-relaxed"><%= item[:description] %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center text-white">
+      <h2 class="text-4xl md:text-6xl tracking-tight">
+        Build faster websites.
+      </h2>
+      <p class="text-gray-300 mt-4 text-lg md:text-xl">
+        Pull content from anywhere and serve it fast with Astro's next-gen island architecture.
+      </p>
+      <div class="flex mt-5">
+        <%= link_to 'Get Started', '#', class: 'btn-inverted' %>
+      </div>
+    </div>
+  </div>
+</main>

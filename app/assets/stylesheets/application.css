@@ -136,3 +136,7 @@
   background: #3182ce; /* Blue */
   color: white;
 }
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+}
