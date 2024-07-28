@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/* Header Container */
+/* Header Container */
+/* Header Container */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  backdrop-filter: blur(15px); /* Enhanced blur effect */
+  background: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Add 'scrolled' class on scroll */
+.header-container.scrolled {
+  background: rgba(255, 255, 255, 1); /* Solid background on scroll */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on scroll */
+}
+
+/* Header Card */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white; /* Background color for the card */
+  margin: 0 auto; /* Center the card horizontally */
+  max-width: 1200px; /* Max width for the card */
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-primary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2d3748; /* Dark gray */
+}
+
+.logo-secondary {
+  font-size: 1.5rem;
+  color: #4a5568; /* Medium gray */
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Menu Item */
+.menu-item {
+  position: relative;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 12rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu Link */
+.menu-link {
+  display: block;
+  padding: 0.5rem;
+  color: #2d3748; /* Dark gray */
+  text-decoration: none;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-muted {
+  background: #edf2f7; /* Light gray */
+  color: #4a5568; /* Medium gray */
+}
+
+.btn-primary {
+  background: #3182ce; /* Blue */
+  color: white;
+}

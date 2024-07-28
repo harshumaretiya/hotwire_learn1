@@ -1,0 +1,82 @@
+<% menuitems = [
+  {
+    title: "Features",
+    path: "#",
+    children: [
+      { title: "Action", path: "/" },
+      { title: "Another action", path: "#" },
+      { title: "Dropdown Submenu", path: "#" },
+      { title: "404 Page", path: "/404" },
+    ],
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
+  },
+  {
+    title: "About",
+    path: "/about",
+  },
+  {
+    title: "Blog",
+    path: "/blog",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+  {
+    title: "Pro Version",
+    badge: true,
+    path: "https://astroship-pro.web3templates.com/",
+  },
+] %>
+
+<div data-controller="header" class="header-container">
+  <header class="header card">
+    <div class="header-content">
+      <nav class="nav">
+        <%= link_to root_path, class: 'logo' do %>
+          <span class="logo-primary">Astro</span>
+          <span class="logo-secondary">ship</span>
+        <% end %>
+      </nav>
+      <ul class="menu">
+        <% menuitems.each_with_index do |item, index| %>
+          <% if item[:children] %>
+            <li class="menu-item relative group" data-controller="dropdown" data-action="mouseenter->dropdown#showMenu mouseleave->dropdown#hideMenu">
+              <button class="menu-button flex items-center gap-2 lg:px-4 py-2 text-gray-600 hover:text-gray-900 transition-transform transform hover:scale-105">
+                <span><%= item[:title] %></span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4 transition-transform transform group-hover:rotate-180">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+                </svg>
+              </button>
+              <div data-dropdown-target="menu" class="dropdown-menu lg:absolute w-full lg:w-48 z-10 hidden transition-opacity opacity-0 <%= index == menuitems.size - 1 ? 'lg:right-0 origin-top-right' : 'lg:left-0 origin-top-left' %>">
+                <div class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow-lg lg:border flex flex-col">
+                  <% item[:children].each do |child| %>
+                    <%= link_to child[:path], class: 'menu-link py-1 text-gray-600 hover:text-gray-900' do %>
+                      <%= child[:title] %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          <% else %>
+            <li class="menu-item">
+              <%= link_to item[:path], class: 'menu-link flex lg:px-4 py-2 items-center text-gray-600 hover:text-gray-900 transition-transform transform hover:scale-105' do %>
+                <span><%= item[:title] %></span>
+                <% if item[:badge] %>
+                  <span class="badge ml-2 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">New</span>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <div class="auth-buttons">
+        <%= link_to 'Log in', '#', class: 'btn-muted transition-transform transform hover:scale-105' %>
+        <%= link_to 'Sign up', '#', class: 'btn-primary transition-transform transform hover:scale-105' %>
+      </div>
+    </div>
+  </header>
+</div>

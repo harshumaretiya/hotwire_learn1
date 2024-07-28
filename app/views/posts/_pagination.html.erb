@@ -1,0 +1,3 @@
+<div id="pagination" data-infinite-scroll-target="pagination">
+  <%= link_to 'Load More', posts_path(offset: offset), data: { turbo_frame: 'posts' }, remote: true %>
+</div>

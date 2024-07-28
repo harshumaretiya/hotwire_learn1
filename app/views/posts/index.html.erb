@@ -1,0 +1,162 @@
+
+<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-6 md:order-1 hidden md:block">
+    <%= image_tag 'heroImage.svg', alt: "Astronaut in the air", class: 'w-full' %>
+  </div>
+  <div>
+    <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      Marketing website done with Astro
+    </h1>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      Astroship is a starter template for startups, marketing websites & landing pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly create any website with this starter.
+    </p>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <%= link_to 'https://web3templates.com/templates/astroship-starter-website-template-for-astro', target: '_blank', class: 'flex gap-1 items-center justify-center', rel: 'noopener' do %>
+        <%= render_icon('bx:bxs-cloud-download', class: 'text-white w-5 h-5') %>
+        <span>Download for Free</span>
+      <% end %>
+      <%= link_to 'https://github.com/surjithctly/astroship', target: '_blank', class: 'flex gap-1 items-center justify-center', rel: 'noopener' do %>
+        <%= render_icon('bx:bxl-github', class: 'text-black w-4 h-4') %>
+        <span>GitHub Repo</span>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Everything you need to start a website
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    Astro comes batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations.
+  </p>
+</div>
+
+<% features = [
+  {
+    title: "Bring Your Own Framework",
+    description: "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
+    icon: "bx:bxs-briefcase"
+  },
+  {
+    title: "100% Static HTML, No JS",
+    description: "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
+    icon: "bx:bxs-window-alt"
+  },
+  {
+    title: "On-Demand Components",
+    description: "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.",
+    icon: "bx:bxs-data"
+  },
+  {
+    title: "Broad Integration",
+    description: "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
+    icon: "bx:bxs-bot"
+  },
+  {
+    title: "SEO Enabled",
+    description: "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
+    icon: "bx:bxs-file-find"
+  },
+  {
+    title: "Community",
+    description: "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
+    icon: "bx:bxs-user"
+  }
+] %>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  <% features.each do |item| %>
+    <div class="flex gap-4 items-start">
+      <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0">
+        <%= render_icon(item[:icon], class: 'text-white') %>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg"><%= item[:title] %></h3>
+        <p class="text-slate-500 mt-2 leading-relaxed"><%= item[:description] %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<footer class="my-20">
+  <p class="text-center text-sm text-slate-500">
+    Copyright © <%= Time.now.year %> Astroship. All rights reserved.
+  </p>
+  <!--
+    Can we ask you a favor 🙏
+    Please keep this backlink on your website if possible.
+    or Purchase a commercial license from https://web3templates.com
+  -->
+  <p class="text-center text-xs text-slate-500 mt-1">
+    Made by <%= link_to 'Web3Templates', 'https://web3templates.com', target: '_blank', rel: 'noopener', class: 'hover:underline' %>
+  </p>
+</footer>
+
+<div class="mt-24">
+  <h2 class="text-center text-slate-500">Works with your technologies</h2>
+  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
+    <%= render_icon('simple-icons:react', class: 'size-8 md:size-12') %>
+    <%= render_icon('simple-icons:svelte', class: 'size-8 md:size-12') %>
+    <%= render_icon('simple-icons:astro', class: 'size-8 md:size-12') %>
+    <%= render_icon('simple-icons:tailwindcss', class: 'size-8 md:size-16') %>
+    <%= render_icon('simple-icons:alpinedotjs', class: 'size-8 md:size-16') %>
+    <%= render_icon('simple-icons:vercel', class: 'size-8 md:size-12') %>
+  </div>
+</div>
+
+<% plan = { name: 'Basic', price: { monthly: '$10', original: '$20' }, features: ['Feature 1', 'Feature 2'], button: { link: '#', text: 'Get Started' }, popular: true } %>
+
+<div>
+  <div class="flex flex-col w-full order-first lg:order-none border-2 border-[#D8DEE9] border-opacity-50 py-5 px-6 rounded-md">
+    <div class="text-center">
+      <h4 class="text-lg font-medium text-gray-400"><%= plan[:name] %></h4>
+      <p class="mt-3 text-4xl font-bold text-black md:text-4xl">
+        <%= plan[:price].is_a?(Hash) ? plan[:price][:monthly] : plan[:price] %>
+      </p>
+      <% if plan[:price].is_a?(Hash) && plan[:price][:original] %>
+        <p class="mt-1 text-xl font-medium text-gray-400 line-through md:text-2xl">
+          <%= plan[:price][:original] %>
+        </p>
+      <% end %>
+    </div>
+    <ul class="grid mt-8 text-left gap-y-4">
+      <% plan[:features].each do |item| %>
+        <li class="flex items-start gap-3 text-gray-800">
+          <%= render_icon('tick', class: 'w-6 h-6') %>
+          <span><%= item %></span>
+        </li>
+      <% end %>
+    </ul>
+    <div class="flex mt-8">
+      <%= link_to plan[:button][:text] || "Get Started", plan[:button][:link] || "#", class: "block #{plan[:popular] ? 'btn-primary' : 'btn-outline'}" %>
+    </div>
+  </div>
+</div>
+
+<% align = "center" %>
+
+<div class="mt-16 <%= 'text-center' if align == 'center' %>">
+  <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    <%= content_for?(:title) ? yield(:title) : "Title" %>
+  </h1>
+  <p class="text-lg mt-4 text-slate-600">
+    <%= content_for?(:desc) ? yield(:desc) : "Some description goes here" %>
+  </p>
+</div>
+
+<div class="max-w-screen-xl mx-auto px-5 ">
+  <%= yield %>
+</div>
+
+<div class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
+  <h2 class="text-white text-4xl md:text-6xl tracking-tight">
+    Build faster websites.
+  </h2>
+  <p class="text-slate-400 mt-4 text-lg md:text-xl">
+    Pull content from anywhere and serve it fast with Astro's next-gen island architecture.
+  </p>
+  <div class="flex mt-5">
+    <%= link_to 'Get Started', '#', class: 'btn-inverted' %>
+  </div>
+</div>

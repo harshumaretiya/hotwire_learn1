@@ -1,0 +1,2 @@
+<%= turbo_stream.append "posts", partial: "posts/posts", locals: { posts: @posts } %>
+<%= turbo_stream.replace "pagination", partial: "posts/pagination", locals: { offset: @offset } %>
